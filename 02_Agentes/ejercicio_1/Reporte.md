@@ -1,0 +1,11 @@
+1.- ¿Qué agentes lograron salir con el oro en tu mapa y cuáles no?
+
+En la configuración actual de mi mapa de 4x4 únicamente el Utility agent pudo salir correctamente con el oro, el agente simple claramente no tenía ninguna opción real de poder encontrar el oro o la salida una vez encontrado el oro, y las instrucciones que tenía programadas hacían que en el momento que encontrara una sola condición que alterara las percepciones \[Stench, Breeze] se ciclaría dando vueltas a la derecha o a la izquierda respectivamente, desafortunadamente por la condición de no gamble de los agentes model\_based y goal\_based tampoco tuvieron mucho éxito, en mi mapa la casilla (3,3) representaba un problema para la función not\_pit y not\_wumpus lo que hacía que se ciclaran en la casilla girando a la izquierda. esta problemática podría haberse solucionado si el goal base tuviera un disparo claro hacia wumpus para poder declarar 2,4 como safe cell pero al no poder regresar a celdas ya visitadas el disparo no estaba alineado, únicamente el Utility based pudo sobreponerse a la problemática con la función de explorar.
+
+2.- ¿Por qué el agente de reflejo simple falla (o tiene suerte) en tu diseño?
+
+simplemente es por la arquitectura tan sencilla que maneja, tomar una decisión basada en el estado actual sin poder reflexionar posiciones o estados anteriores es muy difícil, el arreglo de if con condiciones muy sencillas provocaba que casi en todos los puntos el agente se pudiera ciclar al nunca dejar de percibir \[Stench, breeze]
+
+3.- ¿Cómo cambia el resultado del agente basado en modelo si acercas o alejas un pit de la casilla inicial?
+
+si lo acercas lo suficiente para que el agente aparezca encima de una percepción \[Breeze] el agente se ciclara inmediatamente agotando los 200 pasos establecidos en la configuración del mundo. algo similar ocurriría si el agente no tuviera manera segura de comprobar que alguna casilla "neighbor" no es pit, pues al no tener más casillas seguras no visitadas entraría a la función "no gamble"
