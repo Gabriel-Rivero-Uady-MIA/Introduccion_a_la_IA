@@ -36,7 +36,7 @@
 
 ## 4. Evidencia de ejecucion en Colab.
 
- ![ScreenShot entorno Colab](Ejercicio_01\Imagenes\Evidencia_entorno_colab.png)
+ ![ScreenShot entorno Colab](Ejercicio_01/magenes/Evidencia_entorno_colab.png)
 
 ## 5. Reto
 
@@ -44,12 +44,12 @@
 
 ### 5.1 En la misma imagen tuya, corre otra vez el CLI con umbral más estricto:
 
-![Celda_CLI_0.7](Imagenes\No_Coco_Run_Mi_imagen_conf_07.png)
+![Celda_CLI_0.7](Imagenes/No_Coco_Run_Mi_imagen_conf_07.png)
 
 
 | **conf default — Mi_Imagen**                               | **conf 0.7 — Mi_Imagen**                             |
 | ---------------------------------------------------------- | ---------------------------------------------------- |
-| ![CLI conf default](Imagenes/Mi_imagen_reto_predict_1.jpg) | ![CLI conf 0.7](Imagenes\Mi_imagen_reto_conf_07.jpg) |
+| ![CLI conf default](Imagenes/Mi_imagen_reto_predict_1.jpg) | ![CLI conf 0.7](Imagenes/Mi_imagen_reto_conf_07.jpg) |
 
 
 
@@ -60,12 +60,12 @@
 
 ### 5.2 Cambia solo el modelo de la predicción CLI a yolov8s.pt (sin reentrenar) y mira si aparecen objetos que yolov8n se saltó:
 
-![Celda_CLI_V8s](Imagenes\No_Coco_Run_Mi_imagen_Yolov8s.png)
+![Celda_CLI_V8s](Imagenes/No_Coco_Run_Mi_imagen_Yolov8s.png)
 
 
 | **V8n — Mi_Imagen**                           | **V8s — Mi_Imagen**                     |
 | --------------------------------------------- | --------------------------------------- |
-| ![V8n](Imagenes/Mi_imagen_reto_predict_1.jpg) | ![V8s](Imagenes\Mi_imagen_reto_v8s.jpg) |
+| ![V8n](Imagenes/Mi_imagen_reto_predict_1.jpg) | ![V8s](Imagenes/Mi_imagen_reto_v8s.jpg) |
 
 
 
@@ -76,14 +76,14 @@
 
 ### 5.3 Prueba un video corto:
 
-![Celda_Video](Imagenes\Predict_Video.png)
+![Celda_Video](Imagenes/Predict_Video.png)
 
-[video procesado](Ejercicio_01\Videos\Vid_reto.avi)
+[video procesado](Ejercicio_01/Videos/Vid_reto.avi)
 
 
 | **Frame 1**                                | **Frame 2**                                | **Frame 3**                                | **Frame 4**                                |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| ![frame_1](Ejercicio_01\Videos\frame1.png) | ![frame_2](Ejercicio_01\Videos\frame2.png) | ![frame_3](Ejercicio_01\Videos\frame3.png) | ![frame_4](Ejercicio_01\Videos\frame4.png) |
+| ![frame_1](Ejercicio_01/Videos/frame1.png) | ![frame_2](Ejercicio_01/Videos/frame2.png) | ![frame_3](Ejercicio_01/Videos/frame3.png) | ![frame_4](Ejercicio_01/Videos/frame4.png) |
 
 
 
