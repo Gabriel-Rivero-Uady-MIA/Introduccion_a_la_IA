@@ -47,7 +47,7 @@ Inicialmente se evaluó utilizar un umbral fijo sobre la distancia L2 del mejor 
 
 La razón es que particularmente en el contexto de **"league of legends"** tanto en las descripciones de habilidades y objetos, se usan **key words** con significado único en el contexto del juego, el MD *"game_mechanics"* trata de resolver este problema como un diccionario para estas **key words**, en la evidencia recopilada se puede observar que palabras que se repiten mucho a lo largo de descripciones como **"Armadura"**, **"Resistencia mágica"**, **"Tenacidad"**, al momento de ser solicitados a descripción generan un valor l2 muy alto, sin embargo, son el sistema con K5 es capaz completamente de obtener el contexto adecuado y responder las preguntas sin problema. 
 
-Para observar mejor como se comportan estas preguntas y porque son relevantes para responder y concluir el metodo que se utilizo de abstinencia, puede revisar el documento "test_abstinencia" en la carpeta de evidencia. 
+Para observar mejor como se comportan estas preguntas y porque son relevantes para responder y concluir el metodo que se utilizo de abstinencia, puede revisar el documento "abstention_validation_evidence.md" en la carpeta de evidencia. 
 
 Por esta razón, la distancia L2 se conserva como una señal útil de similitud y para inspección, pero **no se utiliza como criterio definitivo de abstención**.
 
