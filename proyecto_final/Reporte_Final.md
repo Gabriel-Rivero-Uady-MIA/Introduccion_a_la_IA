@@ -2,7 +2,7 @@
 
 ## 1. Dominio y tamaño del corpus
 
-El proyecto **LoL Knowledge & Patch Assistant** implementa un sistema de *Retrieval-Augmented Generation* (RAG) enfocado en **League of Legends**, con el corpus congelado en el **parche 26.19**. Su objetivo es responder preguntas sobre campeones, habilidades, estadísticas, objetos, mecánicas generales y cambios del parche utilizando información recuperada desde un corpus controlado.
+El proyecto es un sistema de RAG (*Retrieval-Augmented Generation*) enfocado en **League of Legends**, con el corpus congelado en el **parche 26.19**. Su objetivo es responder preguntas sobre campeones, habilidades, estadísticas, objetos, mecánicas generales y cambios del parche.
 
 El corpus final está compuesto por **5 documentos Markdown**:
 
@@ -37,13 +37,17 @@ chunk_size = 300
 overlap = 60
 ```
 
-Esta configuración ofreció un balance adecuado entre **continuidad semántica, cantidad de contexto y redundancia controlada**.
+Esta configuración ofreció un balance adecuado entre **contexto y redundancia**.
 
 ## 3. Cómo decide el sistema abstenerse
 
 Una dificultad importante del sistema es que **ChromaDB siempre devuelve vecinos**, incluso cuando la pregunta no pertenece al dominio del corpus. Por lo tanto, recuperar resultados no significa necesariamente que exista evidencia suficiente para responder.
 
 Inicialmente se evaluó utilizar un umbral fijo sobre la distancia L2 del mejor resultado. Sin embargo, las pruebas mostraron que esta estrategia no era confiable. Por ejemplo, la consulta **“¿Cómo funciona la tenacidad?”** obtuvo una distancia relativamente alta y aun así el conjunto recuperado contenía evidencia suficiente para responder correctamente. En cambio, **“¿Cuál es el mejor campeón del parche?”** obtuvo una distancia menor, pero el corpus no contenía evidencia para determinar objetivamente cuál campeón era “el mejor”.
+
+La razón es que particularmente en el contexto de **"league of legends"** tanto en las descripciones de habilidades y objetos, se usan **key words** con significado único en el contexto del juego, el MD *"game_mechanics"* trata de resolver este problema como un diccionario para estas **key words**, en la evidencia recopilada se puede observar que palabras que se repiten mucho a lo largo de descripciones como **"Armadura"**, **"Resistencia mágica"**, **"Tenacidad"**, al momento de ser solicitados a descripción generan un valor l2 muy alto, sin embargo, son el sistema con K5 es capaz completamente de obtener el contexto adecuado y responder las preguntas sin problema. 
+
+Para observar mejor como se comportan estas preguntas y porque son relevantes para responder y concluir el metodo que se utilizo de abstinencia, puede revisar el documento "test_abstinencia" en la carpeta de evidencia. 
 
 Por esta razón, la distancia L2 se conserva como una señal útil de similitud y para inspección, pero **no se utiliza como criterio definitivo de abstención**.
 
